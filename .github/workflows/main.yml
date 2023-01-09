@@ -10,5 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
         id: initial
+        uses: ./ # Uses an action in the root directory
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          IAP_TOKEN: ${{secrets.IAP_TOKEN}}
+        
