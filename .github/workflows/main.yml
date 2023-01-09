@@ -15,4 +15,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           IAP_TOKEN: ${{secrets.IAP_TOKEN}}
+          NAME: test
         
