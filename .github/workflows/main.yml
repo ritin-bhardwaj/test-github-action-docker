@@ -12,7 +12,7 @@ jobs:
       - name: Hello world action step
         id: initial
         uses: ./ # Uses an action in the root directory
-        with:
+        env:
           IAP_TOKEN: ${{secrets.IAP_TOKEN}}
           NAME: test
         
