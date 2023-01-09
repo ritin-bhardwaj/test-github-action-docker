@@ -1,0 +1,38 @@
+name: 'testItl Docker'
+description: 'Test Github Action'
+author: 'Itential'
+branding:
+  icon: 'activity'
+  color: 'white'
+inputs:
+  GITHUB_TOKEN:
+   description: 'Github token'
+   required: true
+  IAP_INSTANCE:
+    description: 'IAP Instance to run workflow'
+    required: true
+  TIMEOUT:
+    description: 'Time interval to check job status'
+    required: true
+    default: '30'
+  API_ENDPOINT:
+    description: 'API endpoint name to trigger an automation'
+    required: true
+  API_ENDPOINT_BODY:
+    description: 'the POST body used to create the workflow input'
+    required: true
+  NO_OF_ATTEMPTS:
+    description: 'No of attempts to check job status'
+    required: true
+    default: '5'
+  JOB_STATUS:
+    description: 'Display status of the job with the output'
+    required: true
+
+outputs:
+  results: 
+    description: 'Workflow Result'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
