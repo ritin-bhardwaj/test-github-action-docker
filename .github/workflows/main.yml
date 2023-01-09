@@ -13,7 +13,6 @@ jobs:
         id: initial
         uses: ./ # Uses an action in the root directory
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           IAP_TOKEN: ${{secrets.IAP_TOKEN}}
           NAME: test
         
