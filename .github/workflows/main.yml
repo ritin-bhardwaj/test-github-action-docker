@@ -4,7 +4,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ fromJson(steps.step1.outputs.results).len }}
+      output1: ${{ fromJson(steps.step1.outputs.results) }}
     name: API Endpoint Trigger
     steps:
       # To use this repository's private action,
