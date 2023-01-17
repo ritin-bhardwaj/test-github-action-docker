@@ -82,7 +82,7 @@ def main():
       # response.raise_for_status()
       if (response.status_code!=200):
         response.raise_for_status()
-      if JOB_STATUS==True:
+      if JOB_STATUS=="True":
         print("Job status=true")
         if(iapRelease=="2021.1"):
           jobStatus211(response.json()["_id"],IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT)
