@@ -28,7 +28,9 @@ def main():
 
       elif (response.json()["data"]["status"] == "complete"):
         output=response.json()["data"]["variables"]
-        print(f"::set-output name=results::{output}")
+        print(output)
+        core.set_output("results",output)
+        # print(f"::set-output name=results::{output}")
 
       elif (response.json()["data"]["status"] == "canceled"):
         core.set_failed("Job Canceled")
