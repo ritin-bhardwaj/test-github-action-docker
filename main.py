@@ -55,7 +55,7 @@ def main():
         result=requests.get(IAP_INSTANCE+'/workflow_engine/job/'+job_id+'/output?token='+IAP_TOKEN)
         if (result.status_code!=200):
           result.raise_for_status()
-        print(f"::set-output name=results::{result.json()}")
+        core.set_output(f"::set-output name=results::{result.json()}")
 
       elif (response.json()["status"] == "canceled"):
         print(response.json())
