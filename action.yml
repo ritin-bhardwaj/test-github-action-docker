@@ -11,6 +11,9 @@ inputs:
   IAP_INSTANCE:
     description: 'IAP Instance to run workflow'
     required: true
+  IAP_TOKEN:
+    description: 'IAP token for authorization'
+    required: true
   TIMEOUT:
     description: 'Time interval to check job status'
     required: true

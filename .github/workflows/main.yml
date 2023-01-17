@@ -13,6 +13,12 @@ jobs:
         id: initial
         uses: ./ # Uses an action in the root directory
         env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           IAP_TOKEN: ${{secrets.IAP_TOKEN}}
-          NAME: test
+          IAP_INSTANCE: ${{secrets.IAP_INSTANCE}}
+          TIMEOUT: ${{secrets.TIMEOUT}}
+          NO_OF_ATTEMPTS: ${{secrets.NO_OF_ATTEMPTS}}
+          API_ENDPOINT: ${{secrets.API_ENDPOINT}}
+          API_ENDPOINT_BODY: ${{secrets.API_ENDPOINT_BODY}}
+          JOB_STATUS: ${{secrets.JOB_STATUS}}
         
