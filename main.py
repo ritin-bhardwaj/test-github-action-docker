@@ -16,6 +16,7 @@ def main():
   count=0
   try:
     def jobStatus221(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
+      print("In job status")
       response=requests.get(IAP_INSTANCE+'/operations-manager/jobs/'+job_id+'?token='+IAP_TOKEN)
       if (response.status_code!=200):
         response.raise_for_status()
@@ -70,6 +71,7 @@ def main():
         core.set_failed("Job Timeout")
 
     def startJob(IAP_INSTANCE):
+      print("In start job")
       release=requests.get(IAP_INSTANCE+'/health/server',params={'token':IAP_TOKEN})
       if (release.status_code!=200):
         release.raise_for_status()
@@ -81,9 +83,11 @@ def main():
       if (response.status_code!=200):
         response.raise_for_status()
       if JOB_STATUS==True:
+        print("Job status=true")
         if(iapRelease=="2021.1"):
           jobStatus211(response.json()["_id"],IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT)
         elif (iapRelease=="2021.2" or iapRelease=="2022.1"):
+          print(iapRelease)
           jobStatus221(response.json()["data"]["_id"],IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT)
         else:
           core.set_failed("This Github Action doesn't support IAP release " + iapRelease)
