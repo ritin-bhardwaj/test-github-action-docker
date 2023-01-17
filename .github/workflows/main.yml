@@ -3,6 +3,8 @@ on: [push]
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.results }}
     name: API Endpoint Trigger
     steps:
       # To use this repository's private action,
@@ -10,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Hello world action step
-        id: initial
+        id: step1
         uses: ./ # Uses an action in the root directory
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -21,4 +23,11 @@ jobs:
           API_ENDPOINT: ${{secrets.API_ENDPOINT}}
           API_ENDPOINT_BODY: ${{secrets.API_ENDPOINT_BODY}}
           JOB_STATUS: ${{secrets.JOB_STATUS}}
+      - name: Get output
+        run: echo "${{steps.step1.outputs.results}}"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo "${{needs.job1.outputs.results}}"
         
