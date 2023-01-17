@@ -27,7 +27,7 @@ def main():
         jobStatus221(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT)
 
       elif (response.json()["data"]["status"] == "complete"):
-        output=response.json()["data"]["variables"]
+        output=response.json()["data"]["variables"]["len"]
         print(output)
         core.set_output("results",output)
 
