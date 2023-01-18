@@ -12,20 +12,6 @@ def main():
   NO_OF_ATTEMPTS = core.get_input("NO_OF_ATTEMPTS")
   JOB_STATUS = core.get_input("JOB_STATUS")
   print(TIMEOUT,NO_OF_ATTEMPTS,JOB_STATUS)
-  if len(TIMEOUT) == 0: 
-    TIMEOUT = 15
-  else:
-    TIMEOUT=int(TIMEOUT)
-
-  if len(NO_OF_ATTEMPTS) == 0:
-    NO_OF_ATTEMPTS = 10
-  else:
-    NO_OF_ATTEMPTS=int(NO_OF_ATTEMPTS)
-
-  if len(JOB_STATUS) == 0:
-    JOB_STATUS = 1
-
-  print(TIMEOUT,NO_OF_ATTEMPTS,JOB_STATUS)
   count = 0
 
   try:
