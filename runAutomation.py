@@ -15,6 +15,7 @@ def main():
 
   count=0
   try:
+    print(TIMEOUT)
     #check the status of the job and return the output (IAP release <= 2021.1)
     def jobStatus221(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
       response=requests.get(IAP_INSTANCE+'/operations-manager/jobs/'+job_id+'?token='+IAP_TOKEN)
