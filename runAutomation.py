@@ -5,7 +5,9 @@ import requests
 from actions_toolkit import core
 
 def main():
+  test=core.get_input("IAP_INSTANCE")
   IAP_INSTANCE = os.environ["IAP_INSTANCE"]
+  print(test,IAP_INSTANCE)
   IAP_TOKEN = os.environ["IAP_TOKEN"]
   API_ENDPOINT = os.environ["API_ENDPOINT"]
   API_ENDPOINT_BODY = os.environ["API_ENDPOINT_BODY"]
