@@ -15,6 +15,7 @@ def main():
 
   count=0
   try:
+    #check the status of the job and return the output (IAP release <= 2021.1)
     def jobStatus221(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
       response=requests.get(IAP_INSTANCE+'/operations-manager/jobs/'+job_id+'?token='+IAP_TOKEN)
       if (response.status_code!=200):
@@ -40,6 +41,7 @@ def main():
       else:
         core.set_failed("Job Timeout")
 
+    #check the status of the job and return the output (IAP release > 2021.1)
     def jobStatus211(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
       response=requests.get(IAP_INSTANCE+'/workflow_engine/job/'+job_id+'/details?token='+IAP_TOKEN)
       if (response.status_code!=200):
@@ -68,14 +70,14 @@ def main():
         core.set_failed("Job Timeout")
 
     def startJob(IAP_INSTANCE):
+      #API call to get IAP release
       release=requests.get(IAP_INSTANCE+'/health/server',params={'token':IAP_TOKEN})
       if (release.status_code!=200):
         release.raise_for_status()
       iapRelease=release.json()["release"][0:release.json()["release"].rindex(".")]
 
-      
+      #API call to start API Endpoint trigger
       response=requests.post(IAP_INSTANCE+'/operations-manager/triggers/endpoint/'+API_ENDPOINT+'?token='+IAP_TOKEN,json=json.loads(API_ENDPOINT_BODY))
-      # response.raise_for_status()
       if (response.status_code!=200):
         response.raise_for_status()
       if bool(int(JOB_STATUS))==True:
