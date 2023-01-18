@@ -8,8 +8,8 @@ def main():
   IAP_TOKEN = core.get_input("IAP_TOKEN")
   API_ENDPOINT = core.get_input("API_ENDPOINT")
   API_ENDPOINT_BODY = core.get_input("API_ENDPOINT_BODY")
-  TIMEOUT = (core.get_input("TIMEOUT"))
-  NO_OF_ATTEMPTS = (core.get_input("NO_OF_ATTEMPTS"))
+  TIMEOUT = core.get_input("TIMEOUT")
+  NO_OF_ATTEMPTS = core.get_input("NO_OF_ATTEMPTS")
   JOB_STATUS = core.get_input("JOB_STATUS")
 
   if len(TIMEOUT) == 0: 
