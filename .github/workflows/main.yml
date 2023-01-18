@@ -21,7 +21,7 @@ jobs:
           NO_OF_ATTEMPTS: 10
           API_ENDPOINT: ${{secrets.API_ENDPOINT}}
           API_ENDPOINT_BODY: ${{secrets.API_ENDPOINT_BODY}}
-          JOB_STATUS: 1
+          JOB_STATUS: '1'
       - name: Get output
         run: echo "${{steps.step1.outputs.results}}"
   job2:

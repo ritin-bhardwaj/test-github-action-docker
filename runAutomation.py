@@ -6,7 +6,7 @@ from actions_toolkit import core
 
 def main():
   test=core.get_input("NO_OF_ATTEMPTS")
-  test2=core.get_boolean_input("JOB_STATUS")
+  test2=core.get_input("JOB_STATUS")
   IAP_INSTANCE = os.environ["IAP_INSTANCE"]
   print(type(test),test,type(test2),test2)
   IAP_TOKEN = os.environ["IAP_TOKEN"]
