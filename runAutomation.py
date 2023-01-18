@@ -11,7 +11,7 @@ def main():
   TIMEOUT = core.get_input("TIMEOUT")
   NO_OF_ATTEMPTS = core.get_input("NO_OF_ATTEMPTS")
   JOB_STATUS = core.get_input("JOB_STATUS")
-
+  print(TIMEOUT,NO_OF_ATTEMPTS,JOB_STATUS)
   if len(TIMEOUT) == 0: 
     TIMEOUT = 15
   else:
@@ -25,6 +25,7 @@ def main():
   if len(JOB_STATUS) == 0:
     JOB_STATUS = 1
 
+  print(TIMEOUT,NO_OF_ATTEMPTS,JOB_STATUS)
   count = 0
 
   try:
