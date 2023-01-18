@@ -29,7 +29,6 @@ def main():
 
       elif (response.json()["data"]["status"] == "complete"):
         output=response.json()["data"]["variables"]
-        print(output)
         core.set_output("results",output)
 
       elif (response.json()["data"]["status"] == "canceled"):
@@ -39,7 +38,7 @@ def main():
         core.set_failed(response.json()["data"]["error"])
 
       else:
-        core.set_failed("Job Timeout")
+        core.set_failed("Job Timed out based upon user defined TIMEOUT and NO_OF_ATTEMPTS")
 
     #check the status of the job and return the output (IAP release > 2021.1)
     def jobStatus211(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
@@ -60,14 +59,13 @@ def main():
         core.set_output(f"::set-output name=results::{result.json()}")
 
       elif (response.json()["status"] == "canceled"):
-        print(response.json())
         core.set_failed("Job Canceled")
 
       elif (response.json()["status"] == "error"):
         core.set_failed(response.json()["error"])
 
       else:
-        core.set_failed("Job Timeout")
+        core.set_failed("Job Timed out based upon user defined TIMEOUT and NO_OF_ATTEMPTS")
 
     def startJob(IAP_INSTANCE):
       #API call to get IAP release

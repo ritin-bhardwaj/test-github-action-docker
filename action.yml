@@ -1,40 +1,35 @@
-name: 'testItl Docker'
-description: 'Test Github Action'
+name: 'Run IAP Automation in docket container'
+description: 'A Docker container action to run IAP automation using API trigger'
 author: 'Itential'
 branding:
   icon: 'activity'
-  color: 'white'
+  color: 'blue'
 inputs:
-  GITHUB_TOKEN:
-   description: 'Github token'
-   required: true
   IAP_INSTANCE:
     description: 'IAP Instance to run workflow'
     required: true
   IAP_TOKEN:
     description: 'IAP token for authorization'
     required: true
-  TIMEOUT:
-    description: 'Time interval to check job status'
-    required: true
-    default: '30'
   API_ENDPOINT:
     description: 'API endpoint name to trigger an automation'
     required: true
   API_ENDPOINT_BODY:
     description: 'the POST body used to create the workflow input'
     required: true
+  TIMEOUT:
+    description: 'Time interval to check job status'
+    default: '15'
   NO_OF_ATTEMPTS:
     description: 'No of attempts to check job status'
-    required: true
-    default: '5'
+    default: '10'
   JOB_STATUS:
     description: 'Display status of the job with the output'
-    required: true
+    default: '1'
 
 outputs:
   results: 
-    description: 'API Endpoint Trigger output variables'
+    description: 'API Trigger output variables'
 
 runs:
   using: 'docker'
