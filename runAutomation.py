@@ -5,25 +5,30 @@ import requests
 from actions_toolkit import core
 
 def main():
-  
-  IAP_INSTANCE = core.get_input["IAP_INSTANCE"]
-  IAP_TOKEN = core.get_input["IAP_TOKEN"]
-  API_ENDPOINT = core.get_input["API_ENDPOINT"]
-  API_ENDPOINT_BODY = core.get_input["API_ENDPOINT_BODY"]
-  TIMEOUT = int(core.get_input["TIMEOUT"])
-  NO_OF_ATTEMPTS = int(core.get_input["NO_OF_ATTEMPTS"])
-  JOB_STATUS = core.get_input["JOB_STATUS"]
+  IAP_INSTANCE = core.get_input("IAP_INSTANCE")
+  IAP_TOKEN = core.get_input("IAP_TOKEN")
+  API_ENDPOINT = core.get_input("API_ENDPOINT")
+  API_ENDPOINT_BODY = core.get_input("API_ENDPOINT_BODY")
+  TIMEOUT = (core.get_input("TIMEOUT"))
+  NO_OF_ATTEMPTS = (core.get_input("NO_OF_ATTEMPTS"))
+  JOB_STATUS = core.get_input("JOB_STATUS")
 
   if len(TIMEOUT) == 0: 
     TIMEOUT = 15
-  if len(NO_OF_ATTEMPTS.length) == 0:
+  else:
+    TIMEOUT=int(TIMEOUT)
+
+  if len(NO_OF_ATTEMPTS) == 0:
     NO_OF_ATTEMPTS = 10
-  if len(JOB_STATUS.length) == 0:
+  else:
+    NO_OF_ATTEMPTS=int(NO_OF_ATTEMPTS)
+
+  if len(JOB_STATUS) == 0:
     JOB_STATUS = 1
+
   count = 0
 
   try:
-    print(TIMEOUT)
     #check the status of the job and return the output (IAP release <= 2021.1)
     def jobStatus221(job_id,IAP_INSTANCE,IAP_TOKEN,count,NO_OF_ATTEMPTS,TIMEOUT):
       response=requests.get(IAP_INSTANCE+'/operations-manager/jobs/'+job_id+'?token='+IAP_TOKEN)
