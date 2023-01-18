@@ -34,7 +34,7 @@ inputs:
 
 outputs:
   results: 
-    description: 'Workflow Result'
+    description: 'API Endpoint Trigger output variables'
 
 runs:
   using: 'docker'
