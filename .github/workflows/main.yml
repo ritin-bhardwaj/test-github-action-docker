@@ -14,7 +14,7 @@ jobs:
       - name: Hello world action step
         id: step1
         uses: ./ # Uses an action in the root directory
-        env:
+        with:
           IAP_TOKEN: ${{secrets.IAP_TOKEN}}
           IAP_INSTANCE: ${{secrets.IAP_INSTANCE}}
           API_ENDPOINT: ${{secrets.API_ENDPOINT}}
