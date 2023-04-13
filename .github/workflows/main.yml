@@ -9,8 +9,6 @@ jobs:
     steps:
       # To use this repository's private action,
       # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Hello world action step
         id: step1
         uses: ./ # Uses an action in the root directory
