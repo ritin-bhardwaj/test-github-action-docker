@@ -17,6 +17,7 @@ inputs:
   API_ENDPOINT_BODY:
     description: 'the POST body used to create the workflow input'
     required: true
+    default: '{}'
   TIMEOUT:
     description: 'Time interval to check job status'
     default: '15'
